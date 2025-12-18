@@ -1,4 +1,4 @@
-import { writeData, updateData, listenToData, deleteData, readDataOnce } from "./databaseService.js";
+import { writeData, updateData, listenToData, deleteData, readDataOnce } from "./src/app/services/databaseService.js";
 
 const testingAll = true;
 function createNewUser(name, role){
