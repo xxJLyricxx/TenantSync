@@ -1,22 +1,24 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Database } from 'firebase/database';
-import { writeData, updateData, listenToData, deleteData, readDataOnce } from ".databaseService.js";
+import { DatabaseService } from "./databaseService";
 
 @Injectable({
   providedIn: 'root',
 })
-export class TenantSyncService {
-  
-  constructor(private service: TenantSyncService) {}
+export class TenantSyncService implements OnInit {
+  constructor(private service: DatabaseService) {}
 
 
   ngOnInit() {
-    // this.service.getTenants().then(data => {
-    //   this.tenants = data;
-    // });
+    this.getCurrentDate
+  }
+  async getCurrentDate(): Promise<string> {
+    const now = new Date();
+    console.log("GetCurrentDate ran: " + now.toISOString());
+    return now.toISOString();
   }
 
-  function createNewUser(name, role){
+  async createNewUser(name: string, role: string): Promise<void> {
     var inputName = ""
     var inputRole = ""
     
@@ -42,11 +44,11 @@ export class TenantSyncService {
     } else {
       inputRole = "Basic"
     }
-    
-    
-    writeData("users/"+ inputName, {
+
+
+    this.service.writeData("users/"+ inputName, {
       name: inputName,
       role: inputRole,
     });
   }
-}
+};
