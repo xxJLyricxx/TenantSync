@@ -1,6 +1,35 @@
-<div class="start-container">
+<!-- <div class="start-page">
   <h1>TenantSync</h1>
+  <p>Login Page</p>
   <p>Manage tenants, roles, and access.</p>
 
   <button (click)="goNext()">Get Started</button>
+</div> -->
+
+<div class="start-page">
+  <div class="login-card">
+    <h1 class="logo">TenantSync</h1>
+
+    <p class="subtitle">
+      Manage tenants, roles, and access
+    </p>
+
+    <form class="login-form">
+      <input
+        type="email"
+        placeholder="Email"
+        aria-label="Email"
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        aria-label="Password"
+      />
+
+      <button type="button" (click)="goNext()">
+        Get Started
+      </button>
+    </form>
+  </div>
 </div>
